@@ -257,6 +257,7 @@
     <Content Include="Content\css\all.min.css" />
     <Content Include="Content\css\brands.css" />
     <Content Include="Content\css\brands.min.css" />
+    <Content Include="Content\css\DetailCss.css" />
     <Content Include="Content\css\fontawesome.css" />
     <Content Include="Content\css\fontawesome.min.css" />
     <Content Include="Content\css\regular.css" />

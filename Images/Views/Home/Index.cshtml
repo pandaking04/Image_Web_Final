@@ -149,6 +149,7 @@
 
                         <div class="product_details">
                             <h4><a onclick="location.href = '@Url.Action("Details","Home", new {id = @Model.ElementAt(indexItem).Pic_ID })'">@Model.ElementAt(indexItem).Name</a></h4>
+                            <h5><a onclick="location.href = '@Url.Action("Details","Home", new {id = @Model.ElementAt(indexItem).Pic_ID })'">@Model.ElementAt(indexItem).Desc</a></h5>
                         </div>
 
                     </div>

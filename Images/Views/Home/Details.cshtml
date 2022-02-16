@@ -16,71 +16,54 @@
     <!-- CSS -->
     @*  <script src="~/Content/preview-css/script.js"></script>*@
     <meta name="robots" content="noindex,follow" />
-    <link href="~/Content/preview-css/style.css" rel="stylesheet" />
+    
+    <link href="~/Content/css/DetailCss.css" rel="stylesheet" />
+
+
 </head>
 
 <body>
-    <main class="container">
-
-        <!-- Left Column / Headphones Image -->
-        @* <div class="left-column">
-                <img src=@Url.Content("~/Content/images/"+(Model.url)) />
-
-            </div>*@
-        <img class="shadow" src=@Url.Content("~/Content/images/"+(Model.url)) />
-
-        <!-- Right Column -->
-        <div class="right-column">
-
-            <!-- Product Description -->
-            <div class="product-description">
-                @* <span>Headphones</span>*@
-                <h1>@Html.DisplayFor(model => model.Name)</h1>
-                <p>@Html.DisplayFor(model => model.Desc)</p>
+    <br/>
+    <br />
+    <div class="container">
+        <div class="row list-project">
+            <div class="col-md-7">
+                <img src=@Url.Content("~/Content/images/"+(Model.url)) alt="project-image" class="rounded tablet-top">
             </div>
-
-            <!-- Product Configuration -->
-            <div class="product-configuration">
-
-                <!-- Product Color -->
-                <div class="product-color">
-                    <span>ขนาดรูปภาพ: @Html.DisplayFor(model => model.Size) px</span>
-
-
-
+            <!-- / column -->
+            <div class="col-md-5">
+                <div class="project-info-box mt-0">
+                    <h5><b>ผู้ออกเเบบ</b></h5>
+                    <p class="mb-0"><b>อีเมล์ผู้ออกเเบบ : </b>@Html.DisplayFor(model => model.user_email)</p>
                 </div>
+                <!-- / project-info-box -->
 
-                <!-- Cable Configuration -->
-                <div class="cable-config">
-                    <span>หมวดหมู่: @Html.DisplayFor(model => model.Type)</span>
+                <div class="project-info-box mb-10">
+                    <p><b>ชื่อภาพ : </b>@Html.DisplayFor(model => model.Name)</p>
+                    <p><b>คำอธิบาย : </b>@Html.DisplayFor(model => model.Desc)</p>
+                    <p><b>ขนาดภาพ : </b>@Html.DisplayFor(model => model.Size) px.</p>
+                    <p><b>หมวดหมู่ : </b>@Html.DisplayFor(model => model.Type)</p>
+                    <p class="mb-0"><b>ราคา : </b>@Html.DisplayFor(model => model.Price) THB</p>
+                    <br />
+                    @if (User.Identity.Name != "admin@admin.com")
+                    {
+                        @Html.ActionLink("ดาวน์โหลด", "QRCODE", "Home", new { id = Model.Pic_ID }, new { @class = "btn btn-primary btn-lg" })
+                        @Html.ActionLink("รายงาน", "Create", "Reports", new { sender_email = User.Identity.Name, receiver_email = Model.user_email, pic_url = Model.url }, new { @class = "btn btn-outline-danger btn-lg", @style = "margin-left:10px" });
 
-                    @* <div class="cable-choose">
-                    <button>Straight</button>
-                    <button>Coiled</button>
-                    <button>Long-coiled</button>
-                </div>*@
-
+                    }
                 </div>
-            </div>
+                <!-- / project-info-box -->
 
-            <!-- Product Pricing -->
-            <div class="product-price">
-                <span>@Html.DisplayFor(model => model.Price) THB</span>
-
-            </div>
-            <br />
-            @if (User.Identity.Name != "admin@admin.com")
-            {
-                @Html.ActionLink("ดาวน์โหลด", "QRCODE", "Home", new { id = Model.Pic_ID }, new { @class = "btn btn-dark btn-lg" })
-                @Html.ActionLink("รายงาน", "Create", "Reports", new { sender_email = User.Identity.Name,receiver_email = Model.user_email,pic_url = Model.url  }, new { @class = "btn btn-outline-danger", @style = "margin-left:10px" });
                 
-            }
-
+            </div>
+            <!-- / column -->
         </div>
-    </main>
+        <!-- / row list-project -->
 
-    <!-- Scripts -->
-    @* <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js" charset="utf-8"></script>
-        <script src="script.js" charset="utf-8"></script>*@
+
+    </div>
+
 </body>
 </html>
+
+

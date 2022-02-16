@@ -24,7 +24,10 @@
                             <h6 class="user-email">อีเมล์ : @Html.DisplayFor(modelItem => item.Email)</h6>
                         </div>
                     </div>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }, new { @class = "btn btn-primary" })
+                    <div class="d-grid gap-2">
+                        @Html.ActionLink("Edit", "Edit", new { id = item.Id }, new { @class = "btn btn-primary btn-block" })
+                    </div>
+                    
                 </div>
             </div>
         </div>
