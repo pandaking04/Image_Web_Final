@@ -81,30 +81,6 @@
     <Property Name="picid" Type="int" />
     <Property Name="UserName" Type="nvarchar(max)" />
   </EntityType>
-  <Association Name="FK_order_details_ToTable">
-    <End Role="OrderPic" Type="Self.OrderPic" Multiplicity="0..1" />
-    <End Role="order_details" Type="Self.order_details" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="OrderPic">
-        <PropertyRef Name="Order_Pic" />
-      </Principal>
-      <Dependent Role="order_details">
-        <PropertyRef Name="Order_Pic" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_order_details_ToTable_1">
-    <End Role="Picture" Type="Self.Picture" Multiplicity="0..1" />
-    <End Role="order_details" Type="Self.order_details" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Picture">
-        <PropertyRef Name="Pic_ID" />
-      </Principal>
-      <Dependent Role="order_details">
-        <PropertyRef Name="Pic_ID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <EntityContainer Name="ModelStoreContainer">
     <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="order_details" EntityType="Self.order_details" Schema="dbo" store:Type="Tables" />
@@ -112,13 +88,5 @@
     <EntitySet Name="Picture" EntityType="Self.Picture" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Report" EntityType="Self.Report" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="UserCollection" EntityType="Self.UserCollection" Schema="dbo" store:Type="Tables" />
-    <AssociationSet Name="FK_order_details_ToTable" Association="Self.FK_order_details_ToTable">
-      <End Role="OrderPic" EntitySet="OrderPic" />
-      <End Role="order_details" EntitySet="order_details" />
-    </AssociationSet>
-    <AssociationSet Name="FK_order_details_ToTable_1" Association="Self.FK_order_details_ToTable_1">
-      <End Role="Picture" EntitySet="Picture" />
-      <End Role="order_details" EntitySet="order_details" />
-    </AssociationSet>
   </EntityContainer>
 </Schema>
