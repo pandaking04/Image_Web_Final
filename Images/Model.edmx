@@ -45,6 +45,7 @@
           <Property Name="Pic_ID" Type="int" />
           <Property Name="total" Type="money" />
           <Property Name="ordertime" Type="timestamp" StoreGeneratedPattern="Computed" />
+          <Property Name="Name" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="Picture">
           <Key>
@@ -58,6 +59,7 @@
           <Property Name="Price" Type="money" />
           <Property Name="url" Type="varchar" MaxLength="50" />
           <Property Name="user_email" Type="nvarchar" MaxLength="100" />
+          <Property Name="UserName" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="Report">
           <Key>
@@ -73,7 +75,7 @@
           <Key>
             <PropertyRef Name="Id_userimage" />
           </Key>
-          <Property Name="Id_userimage" Type="int" Nullable="false" />
+          <Property Name="Id_userimage" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="user_email" Type="nvarchar" MaxLength="150" />
           <Property Name="Name" Type="nvarchar" MaxLength="50" />
           <Property Name="Size" Type="nvarchar" MaxLength="50" />
@@ -82,6 +84,7 @@
           <Property Name="Price" Type="money" />
           <Property Name="url" Type="varchar" MaxLength="256" />
           <Property Name="picid" Type="int" />
+          <Property Name="UserName" Type="nvarchar(max)" />
         </EntityType>
         <Association Name="FK_order_details_ToTable">
           <End Role="OrderPic" Type="Self.OrderPic" Multiplicity="0..1" />
@@ -158,6 +161,7 @@
           <Property Name="total" Type="Decimal" Precision="19" Scale="4" />
           <Property Name="ordertime" Type="Binary" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
           <NavigationProperty Name="order_details" Relationship="Model.FK_order_details_ToTable" FromRole="OrderPic" ToRole="order_details" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Picture">
           <Key>
@@ -172,6 +176,7 @@
           <Property Name="url" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="user_email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="order_details" Relationship="Model.FK_order_details_ToTable_1" FromRole="Picture" ToRole="order_details" />
+          <Property Name="UserName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityContainer Name="Entities1" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUser" />
@@ -238,6 +243,7 @@
           <Property Name="Price" Type="Decimal" Precision="19" Scale="4" />
           <Property Name="url" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
           <Property Name="picid" Type="Int32" />
+          <Property Name="UserName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Report">
           <Key>
@@ -280,6 +286,7 @@
           <EntitySetMapping Name="OrderPics">
             <EntityTypeMapping TypeName="Model.OrderPic">
               <MappingFragment StoreEntitySet="OrderPic">
+                <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="ordertime" ColumnName="ordertime" />
                 <ScalarProperty Name="Order_Pic" ColumnName="Order_Pic" />
                 <ScalarProperty Name="User_email" ColumnName="User_email" />
@@ -291,6 +298,7 @@
           <EntitySetMapping Name="Pictures">
             <EntityTypeMapping TypeName="Model.Picture">
               <MappingFragment StoreEntitySet="Picture">
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
                 <ScalarProperty Name="user_email" ColumnName="user_email" />
                 <ScalarProperty Name="Pic_ID" ColumnName="Pic_ID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -316,6 +324,7 @@
           <EntitySetMapping Name="UserCollections">
             <EntityTypeMapping TypeName="Model.UserCollection">
               <MappingFragment StoreEntitySet="UserCollection">
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
                 <ScalarProperty Name="picid" ColumnName="picid" />
                 <ScalarProperty Name="url" ColumnName="url" />
                 <ScalarProperty Name="Price" ColumnName="Price" />

@@ -1606,8 +1606,14 @@ D:\DaskTop Work\ChartError\Images\bin\Microsoft.Owin.Security.Twitter.xml
 D:\DaskTop Work\ChartError\Images\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 D:\DaskTop Work\ChartError\Images\bin\Microsoft.Owin.Security.OAuth.xml
 D:\DaskTop Work\ChartError\Images\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-D:\DaskTop Work\ChartError\Images\obj\Debug\Images.csproj.AssemblyReference.cache
 D:\DaskTop Work\ChartError\Images\obj\Debug\Images.csproj.CoreCompileInputs.cache
 D:\DaskTop Work\ChartError\Images\obj\Debug\Images.csproj.CopyComplete
 D:\DaskTop Work\ChartError\Images\obj\Debug\Images.dll
 D:\DaskTop Work\ChartError\Images\obj\Debug\Images.pdb
+D:\DaskTop Work\ChartError\Images\bin\System.Net.Http.Formatting.dll
+D:\DaskTop Work\ChartError\Images\bin\System.Web.Http.dll
+D:\DaskTop Work\ChartError\Images\bin\System.Web.Http.WebHost.dll
+D:\DaskTop Work\ChartError\Images\bin\System.Net.Http.Formatting.xml
+D:\DaskTop Work\ChartError\Images\bin\System.Web.Http.xml
+D:\DaskTop Work\ChartError\Images\bin\System.Web.Http.WebHost.xml
+D:\DaskTop Work\ChartError\Images\obj\Debug\Images.csproj.AssemblyReference.cache

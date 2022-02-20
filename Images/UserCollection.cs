@@ -23,5 +23,6 @@ namespace Images
         public Nullable<decimal> Price { get; set; }
         public string url { get; set; }
         public Nullable<int> picid { get; set; }
+        public string UserName { get; set; }
     }
 }

@@ -14,12 +14,6 @@ namespace Images
     
     public partial class Picture
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Picture()
-        {
-            this.order_details = new HashSet<order_details>();
-        }
-    
         public int Pic_ID { get; set; }
         public string Name { get; set; }
         public string Size { get; set; }
@@ -28,8 +22,5 @@ namespace Images
         public Nullable<decimal> Price { get; set; }
         public string url { get; set; }
         public string user_email { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<order_details> order_details { get; set; }
     }
 }

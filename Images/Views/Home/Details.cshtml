@@ -16,25 +16,34 @@
     <!-- CSS -->
     @*  <script src="~/Content/preview-css/script.js"></script>*@
     <meta name="robots" content="noindex,follow" />
-    
+
     <link href="~/Content/css/DetailCss.css" rel="stylesheet" />
 
 
 </head>
 
 <body>
-    <br/>
+    <br />
     <br />
     <div class="container">
         <div class="row list-project">
             <div class="col-md-7">
-                <img src=@Url.Content("~/Content/images/"+(Model.url)) alt="project-image" class="rounded tablet-top">
+                <img src=@Url.Content("~/Content/images/"+(Model.url)) alt="project-image" class="rounded tablet-top" style="height:370px">
             </div>
             <!-- / column -->
             <div class="col-md-5">
                 <div class="project-info-box mt-0">
                     <h5><b>ผู้ออกเเบบ</b></h5>
-                    <p class="mb-0"><b>อีเมล์ผู้ออกเเบบ : </b>@Html.DisplayFor(model => model.user_email)</p>
+                    @if (@ViewBag.pic != "noimg")
+                    {
+                        <img src=@Url.Content("~/Content/images/Profile/" + @ViewBag.pic) style="max-width: 50px;border-radius:100% ; border-width:10px;border-color:red" alt="Maxwell Admin" />
+                    }
+                    else
+                    {
+                        <img src=@Url.Content("~/Content/images/Profile/") style="max-width: 50px;border-radius:100% ; border-width:10px;border-color:red" alt="Maxwell Admin" />
+                    }
+                    @* <p class="mb-0"><b>อีเมล์ผู้ออกเเบบ : </b>@Html.DisplayFor(model => model.UserNamePic)</p>*@
+                    <p class="mb-0"><b>อีเมล์ผู้ออกเเบบviewbag : </b>@ViewBag.unam</p>
                 </div>
                 <!-- / project-info-box -->
 
@@ -54,7 +63,7 @@
                 </div>
                 <!-- / project-info-box -->
 
-                
+
             </div>
             <!-- / column -->
         </div>
@@ -65,5 +74,3 @@
 
 </body>
 </html>
-
-

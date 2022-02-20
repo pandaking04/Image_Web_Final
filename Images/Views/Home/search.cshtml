@@ -70,7 +70,7 @@
 } <!--Grid column-->
                 <div class="col-lg-4 col-md-6 mb-4">
 
-                    <a style="cursor: pointer;" onclick="location.href = '@Url.Action("Details","Home", new {id = @Model.ElementAt(indexItem).Pic_ID })'">
+                    <a style="cursor: pointer;" onclick="location.href = '@Url.Action("Details","Home", new {id = @Model.ElementAt(indexItem).Pic_ID,email = @Model.ElementAt(indexItem).user_email})'">
 
                         <img src="@Url.Content("~/Content/images/" + (Model.ElementAt(indexItem).url))" class="img-fluid mb-4" alt=""
                              data-wow-delay="0.3s">

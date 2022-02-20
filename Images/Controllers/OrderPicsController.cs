@@ -30,6 +30,7 @@ namespace Images
             OrderPic my_order = new OrderPic();
             my_order.User_email = User.Identity.Name;
             my_order.Pic_ID = Pic_ID;
+            my_order.Name = product.Name;
             my_order.total = product.Price;
 
 

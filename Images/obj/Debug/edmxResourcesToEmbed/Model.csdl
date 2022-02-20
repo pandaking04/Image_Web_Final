@@ -31,6 +31,7 @@
     <Property Name="total" Type="Decimal" Precision="19" Scale="4" />
     <Property Name="ordertime" Type="Binary" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
     <NavigationProperty Name="order_details" Relationship="Model.FK_order_details_ToTable" FromRole="OrderPic" ToRole="order_details" />
+    <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="Picture">
     <Key>
@@ -45,6 +46,7 @@
     <Property Name="url" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="user_email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="order_details" Relationship="Model.FK_order_details_ToTable_1" FromRole="Picture" ToRole="order_details" />
+    <Property Name="UserName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityContainer Name="Entities1" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUser" />
@@ -111,6 +113,7 @@
     <Property Name="Price" Type="Decimal" Precision="19" Scale="4" />
     <Property Name="url" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
     <Property Name="picid" Type="Int32" />
+    <Property Name="UserName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="Report">
     <Key>

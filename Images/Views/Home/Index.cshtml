@@ -139,22 +139,21 @@
             {
                 @:
             }
-            <div class="col-lg-3 col-md-4 col-sm-12">
-                <div class="card product_item">
-                    <div class="body">
-                        <div class="cp_img">
-                            <img src="@Url.Content("~/Content/images/" + (Model.ElementAt(indexItem).url))" alt="Product" class="img-fluid"
-                                 onclick="location.href = '@Url.Action("Details","Home", new {id = @Model.ElementAt(indexItem).Pic_ID })'">
-                        </div>
-
-                        <div class="product_details">
-                            <h4><a onclick="location.href = '@Url.Action("Details","Home", new {id = @Model.ElementAt(indexItem).Pic_ID })'">@Model.ElementAt(indexItem).Name</a></h4>
-                            <h5><a onclick="location.href = '@Url.Action("Details","Home", new {id = @Model.ElementAt(indexItem).Pic_ID })'">@Model.ElementAt(indexItem).Desc</a></h5>
-                        </div>
-
+        <div class="col-lg-3 col-md-4 col-sm-12">
+            <div class="card product_item">
+                <div class="body">
+                    <div class="cp_img">
+                        <img src="@Url.Content("~/Content/images/" + (Model.ElementAt(indexItem).url))" alt="Product" class="img-fluid"
+                             onclick="location.href = '@Url.Action("Details","Home", new {id = @Model.ElementAt(indexItem).Pic_ID,email = @Model.ElementAt(indexItem).user_email })'">
                     </div>
+
+                    <div class="product_details">
+                        <h4><a onclick="location.href = '@Url.Action("Details","Home", new {id = @Model.ElementAt(indexItem).Pic_ID,email = @Model.ElementAt(indexItem).user_email })'">@Model.ElementAt(indexItem).Name</a></h4>
+                    </div>
+
                 </div>
             </div>
+        </div>
             if (i % 4 == 0)
             {
                 @:

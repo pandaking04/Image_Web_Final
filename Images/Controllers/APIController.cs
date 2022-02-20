@@ -21,6 +21,7 @@ namespace Images.Controllers
             var data = orderModel.GetOrderbyModelPic();
             return Json(data, JsonRequestBehavior.AllowGet);
         }
+
         public JsonResult OrderbyModelType()
         {
             var orderModel = new OrderDetailsDataModel();

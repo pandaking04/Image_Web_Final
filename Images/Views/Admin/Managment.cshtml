@@ -13,9 +13,9 @@
 
     <h3>ประเภทภาพที่วางขาย</h3>
     @*<div id="line_chart"></div>*@
-    <div id="pie_chartType"></div>
+    <div id="pie_chart"></div>
     <h3>ประเภทภาพที่ถูกซื้อ</h3>
-    <div id="pie_chartTypeBuy"></div>
+    <div id="pie_chart1"></div>
     </br>
 
 </center>
@@ -32,13 +32,32 @@
 
 </script>
 
-
+<script type="text/javascript">
+    google.load('visualization', '1.1', { packages: ['line'] });
+    google.setOnLoadCallback(drawLineChart);
+    function drawLineChart() {
+        $.get('/API/OrderbyModel', {},
+            function (data) {
+                var tdata = new google.visualization.DataTable();
+                tdata.addColumn('string', 'ประเภท');
+                tdata.addColumn('number', 'จำนวนรูป');
+                for (var i = 0; i < data.length; i++) {
+                    tdata.addRow([data[i].Model, data[i].Amount]);
+                }
+                var options = {
+                    width: 500
+                };
+                var chart = new google.charts.Line(document.getElementById('line_chart'));
+                chart.draw(tdata, options);
+            });
+    }
+</script>
 
 <script type="text/javascript">
     google.charts.load('current', { packages: ['corechart'] });
     google.setOnLoadCallback(drawPieChart);
     function drawPieChart() {
-        $.get('/API/OrderbyModelType', {},
+        $.get('/API/OrderbyModel', {},
             function (data) {
                 var tdata = new google.visualization.DataTable();
                 tdata.addColumn('string', 'Model');
@@ -50,7 +69,7 @@
                     width: 1000,
                     height: 250,
                 };
-                var chart = new google.visualization.PieChart(document.getElementById('pie_chartType'));
+                var chart = new google.visualization.PieChart(document.getElementById('pie_chart'));
                 chart.draw(tdata, options);
             });
     }
@@ -74,7 +93,7 @@
                     width: 1000,
                     height: 250,
                 };
-                var chart = new google.visualization.PieChart(document.getElementById('pie_chartTypeBuy'));
+                var chart = new google.visualization.PieChart(document.getElementById('pie_chart1'));
                 chart.draw(tdata, options);
             });
     }

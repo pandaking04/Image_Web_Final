@@ -69,11 +69,12 @@ namespace Images
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Pic_ID,Name,Size,Type,Desc,Price,url")] Picture picture)
+        public ActionResult Create([Bind(Include = "Pic_ID,Name,Size,Type,Desc,Price,url,UserName")] Picture picture, AspNetUser aspNetUser)
         {
             if (ModelState.IsValid)
             {
                 var file = Request.Files[0];
+               // var res = db.AspNetUsers.Find(aspNetUser.Id);
 
                 if (file != null && file.ContentLength > 0)
                 {
@@ -83,6 +84,7 @@ namespace Images
                     picture.url = fileName;
                 }
 
+               // picture.UserName = aspNetUser.FirstName;
                 picture.user_email = User.Identity.Name;
                 db.Pictures.Add(picture);
                 db.SaveChanges();

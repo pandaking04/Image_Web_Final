@@ -34,14 +34,15 @@ namespace Images
             UserCollection user = new UserCollection();
 
             user.user_email = User.Identity.Name;
-            int maxid = db.UserCollections.Max(u => u.Id_userimage);
-            user.Id_userimage = maxid+1;
+            //int maxid = db.UserCollections.Max(u => u.Id_userimage);
+            //user.Id_userimage = maxid+1;
             user.Price = price;
             user.url = url;
             user.Type = type;
             user.Name = name;
             user.Size = size;
             user.Desc = desc;
+            user.picid = idx;
 
             db.UserCollections.Add(user);
             db.SaveChanges();
