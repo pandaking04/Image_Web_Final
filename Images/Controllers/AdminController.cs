@@ -65,5 +65,7 @@ namespace Images.Controllers
             return RedirectToAction("Managment");
         }
 
+   
+
     }
 }

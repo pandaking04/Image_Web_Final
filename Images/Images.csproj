@@ -248,11 +248,13 @@
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Controllers\ReportsController.cs" />
+    <Compile Include="Controllers\ReportsAdminController.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="UserCollection.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Controllers\UserCollectionsController.cs" />
+    <Compile Include="Controllers\UserMangeController.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
@@ -272,6 +274,7 @@
     <Content Include="Content\css\DetailCss.css" />
     <Content Include="Content\css\fontawesome.css" />
     <Content Include="Content\css\fontawesome.min.css" />
+    <Content Include="Content\css\Footer.css" />
     <Content Include="Content\css\regular.css" />
     <Content Include="Content\css\regular.min.css" />
     <Content Include="Content\css\solid.css" />
@@ -488,6 +491,16 @@
     <Content Include="Views\Reports\Edit.cshtml" />
     <Content Include="Views\Reports\Index.cshtml" />
     <Content Include="Views\Reports\MyReport.cshtml" />
+    <Content Include="Views\ReportsAdmin\Create.cshtml" />
+    <Content Include="Views\ReportsAdmin\Delete.cshtml" />
+    <Content Include="Views\ReportsAdmin\Details.cshtml" />
+    <Content Include="Views\ReportsAdmin\Edit.cshtml" />
+    <Content Include="Views\ReportsAdmin\Index.cshtml" />
+    <Content Include="Views\UserMange\Create.cshtml" />
+    <Content Include="Views\UserMange\Delete.cshtml" />
+    <Content Include="Views\UserMange\Details.cshtml" />
+    <Content Include="Views\UserMange\Edit.cshtml" />
+    <Content Include="Views\UserMange\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

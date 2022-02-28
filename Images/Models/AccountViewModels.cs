@@ -64,12 +64,12 @@ namespace Images.Models
 
     public class RegisterViewModel
     {
-        [Display(Name = "First Name")]
-        [Required(AllowEmptyStrings = false, ErrorMessage = "First name required")]
+        [Display(Name = "UserName")]
+        [Required(AllowEmptyStrings = false, ErrorMessage = "UserName required")]
         public string FirstName { get; set; }
 
-        [Display(Name = "Last Name")]
-        [Required(AllowEmptyStrings = false, ErrorMessage = "Last name required")]
+        [Display(Name = "Profile Picture")]
+        [Required(AllowEmptyStrings = false, ErrorMessage = "Profile Picture required")]
         public string LastName { get; set; }
 
         [Required]

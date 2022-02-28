@@ -7,6 +7,8 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 namespace Images.Controllers
+
+
 {
     public class HomeController : Controller
     {
@@ -20,6 +22,9 @@ namespace Images.Controllers
         public ViewResult search(string searchString)
         {
             /*   ViewBag.BrandSortParm = String.IsNullOrEmpty(sortOrder) ? "Brand_desc" : "";/*/
+
+
+            ViewBag.word = searchString;
 
                var pic = from p in db.Pictures
                            select p;
@@ -132,9 +137,6 @@ namespace Images.Controllers
             return RedirectToAction("Index");
             //return View(picture);
         }
-
-
-
 
     }
 }

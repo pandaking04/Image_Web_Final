@@ -1,5 +1,5 @@
 ﻿@{ ViewBag.Title = "search";
-                Layout = "~/Views/Shared/_LayoutAll.cshtml"; }
+    Layout = "~/Views/Shared/_LayoutAll.cshtml"; }
 
 
 @model IEnumerable<Images.Picture>
@@ -26,13 +26,13 @@
 
             @using (Html.BeginForm("Search", "Home", FormMethod.Post))
             {
-<div class="input-group">
+                <div class="input-group">
 
-    @Html.TextBox("searchString", null, new { @class = "form-control" })
+                    @Html.TextBox("searchString", null, new { @class = "form-control" })
 
-    <button type="submit" class="btn btn btn-dark">ค้นหา</button>
+                    <button type="submit" class="btn btn btn-dark">ค้นหา</button>
 
-</div>            }
+                </div>}
             @*<div class="input-group">
 
                     <input type="search" value="Search" class="form-control rounded" placeholder="ค้นหาภาพถ่ายตามความต้องการของคุณ" aria-label="Search"
@@ -47,7 +47,8 @@
             <p class="hero-text2">ปลดปล่อยพลังสร้างสรรค์ของคุณ</p>
         </div>
     </div>
-    <script>$(".img-fluid").addClass("wow fadeIn z-depth-1-half");
+    <script>
+        $(".img-fluid").addClass("wow fadeIn z-depth-1-half");
 
         new WOW().init();</script>
 </header>
@@ -55,30 +56,68 @@
 <!-- Section-->
 
 
-<hr class="mb-5" />
-<!--Grid row-->
-<div class="container my-4">
-    <div class="row">
+
+@if (@Model.ToList().Count() > 0)
+{<div style="margin-top:15px;margin-left:16%">
+        <h4>รูปภาพ ภาพถ่าย และภาพสต็อก</h4>
+        <h5>     @Model.ToList().Count() รูปภาพที่เกี่ยวข้องกับ <b>"@ViewBag.word"</b> หรือเริ่มการค้นหาใหม่ เพื่อสํารวจรูปภาพและภาพสต็อกเพิ่มเติม  </h5>
+    </div>
+   @* @Url.Content((Model.ElementAt(0).Type))*@
+}
+
+else
+{
+
+    <center style="margin-top:20px">
+        <h2>
+            <b>
+                ขออภัย เราไม่พบรายการที่ตรงกับ
+                "@ViewBag.word"
+            </b>
+            
+        </h2>
+    </center>
+<ul style="margin-left:40%;font-size:20px">
+    <li>ตรวจสอบว่าการสะกดคำนั้นถูกต้อง</li>
+    <li>ลองใช้การค้นหาแบบง่าย</li>
+    <li>หากยังคงพบปัญหา โปรดติดต่อเรา : ImageShot@gmail.com</li>
+</ul>
+}
 
 
+
+
+
+
+
+<div class="container">
+    <div class="row clearfix">
         @for (var i = 1; i <= Model.ToList().Count(); i++)
         {
             var indexItem = i - 1;
             if (i == 1 || i % 4 == 1)
             {
-@:
-} <!--Grid column-->
-                <div class="col-lg-4 col-md-6 mb-4">
+                @:
+            }
+            <div class="col-lg-3 col-md-4 col-sm-12" style="cursor:pointer;margin:10px">
+                <div class="card product_item">
+                    <div class="body">
+                        <div class="cp_img">
+                            <img src="@Url.Content("~/Content/images/" + (Model.ElementAt(indexItem).url))" alt="Product" class="img-fluid"
+                                 onclick="location.href = '@Url.Action("Details","Home", new {id = @Model.ElementAt(indexItem).Pic_ID,email = @Model.ElementAt(indexItem).user_email })'">
+                        </div>
 
-                    <a style="cursor: pointer;" onclick="location.href = '@Url.Action("Details","Home", new {id = @Model.ElementAt(indexItem).Pic_ID,email = @Model.ElementAt(indexItem).user_email})'">
+                        <div class="product_details">
+                            <h4><a onclick="location.href = '@Url.Action("Details","Home", new {id = @Model.ElementAt(indexItem).Pic_ID,email = @Model.ElementAt(indexItem).user_email })'">@Model.ElementAt(indexItem).Name</a></h4>
+                        </div>
 
-                        <img src="@Url.Content("~/Content/images/" + (Model.ElementAt(indexItem).url))" class="img-fluid mb-4" alt=""
-                             data-wow-delay="0.3s">
-                    </a>
-                </div> <!--Grid column--> <!--Grid column--> if (i % 4 == 0)
-                                                                {
-                                                @:
-                                            }
-                                        }
+                    </div>
+                </div>
+            </div>
+            if (i % 4 == 0)
+            {
+                @:
+            }
+        }
     </div>
 </div>

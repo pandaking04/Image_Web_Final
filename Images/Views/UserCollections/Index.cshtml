@@ -29,7 +29,7 @@
                               @*<button class="btn btn-warning" type="button" onclick="load('@Url.Content("~/Content/images/"+(item.url))')">Load</button> |*@
 
 
-                              <a href="@Url.Content("~/Content/images/"+(item.url))" download="sss.jpg"><img src=@Url.Content("~/Content/images/downloading.png") style="width: 35px;height: auto" /></a>
+                              <a href="@Url.Content("~/Content/images/"+(item.url))" download="@Html.DisplayFor(modelItem => item.Name)".jpg""><img src=@Url.Content("~/Content/images/downloading.png") style="width: 35px;height: auto" /></a>
 
                           </div>
                       </div>

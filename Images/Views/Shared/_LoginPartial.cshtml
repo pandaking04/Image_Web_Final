@@ -7,35 +7,51 @@
     {
         @Html.AntiForgeryToken()
 
-        <ul class="nav navbar-nav navbar-right ">
-            @if (User.Identity.Name != "admin@admin.com")
-            {
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="true">บัญชี</a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li>@Html.ActionLink("โปรไฟล์", "Index", "Profile", routeValues: null, htmlAttributes: new { title = "Profile", @class = "dropdown-item", style = "text-decoration:none;" })</li>
-                        <li><hr class="dropdown-divider" /></li>
-                        <li>@Html.ActionLink("ขายภาพ", "Index", "Pictures", routeValues: null, htmlAttributes: new { title = "Puctures", @class = "dropdown-item", style = "text-decoration:none;" })</li>
-                        <li><hr class="dropdown-divider" /></li>
-                        <li>@Html.ActionLink("ภาพที่ซื้อแล้ว", "Index", "UserCollections", routeValues: null, htmlAttributes: new { title = "Puctures", @class = "dropdown-item", style = "text-decoration:none;" })</li>
-                        <li><hr class="dropdown-divider" /></li>
-                        <li><a class="dropdown-item" href="#!">ศิลปินที่ติดตาม</a></li>
-                        <li><hr class="dropdown-divider" /></li>
-                        <li><a class="dropdown-item" href="#!">รูปภาพที่ชอบ</a></li>
-                        <li><hr class="dropdown-divider" /></li>
-                        <li><a class="dropdown-item" style="color:red;" href="javascript:document.getElementById('logoutForm').submit()">ออกจากระบบ</a></li>
-                    </ul>
-                </li>
-            }
-            @if (User.Identity.Name == "admin@admin.com")
-            {
-                <li>
-                    <a class="btn btn-outline-info" style="margin-left:7px" aria-current="page" href='@Url.Action("Managment","Admin")'>การจัดการสำหรับแอดมิน</a>
-                </li>
-                <a class="btn btn-outline-danger " style="margin-left:5px" href="javascript:document.getElementById('logoutForm').submit()">ออกจากระบบ</a>
-            }
+<ul class="nav navbar-nav navbar-right ">
+    @if (User.Identity.Name != "admin@admin.com")
+    {
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="true">บัญชี</a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li>@Html.ActionLink("โปรไฟล์", "Index", "Profile", routeValues: null, htmlAttributes: new { title = "Profile", @class = "dropdown-item", style = "text-decoration:none;" })</li>
+                <li><hr class="dropdown-divider" /></li>
+                <li>@Html.ActionLink("ขายภาพ", "Index", "Pictures", routeValues: null, htmlAttributes: new { title = "Puctures", @class = "dropdown-item", style = "text-decoration:none;" })</li>
+                <li><hr class="dropdown-divider" /></li>
+                <li>@Html.ActionLink("ภาพที่ซื้อแล้ว", "Index", "UserCollections", routeValues: null, htmlAttributes: new { title = "Puctures", @class = "dropdown-item", style = "text-decoration:none;" })</li>
+                <li><hr class="dropdown-divider" /></li>
+                @*<li><a class="dropdown-item" href="#!">ศิลปินที่ติดตาม</a></li>
+                <li><hr class="dropdown-divider" /></li>
+                <li><a class="dropdown-item" href="#!">รูปภาพที่ชอบ</a></li>
+                <li><hr class="dropdown-divider" /></li>*@
+                <li><a class="dropdown-item" style="color:red;" href="javascript:document.getElementById('logoutForm').submit()">ออกจากระบบ</a></li>
+            </ul>
+        </li>
+    }
+    @if (User.Identity.Name == "admin@admin.com")
+    {
+        @* <li>
+                <a class="btn btn-outline-info" style="margin-left:7px" aria-current="page" href='@Url.Action("Managment","Admin")'>การจัดการสำหรับแอดมิน</a>
+            </li>
+            <a class="btn btn-outline-danger " style="margin-left:5px" href="javascript:document.getElementById('logoutForm').submit()">ออกจากระบบ</a>*@
 
-        </ul>
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="true">การจัดการ</a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li>@Html.ActionLink("โปรไฟล์", "Index", "Profile", routeValues: null, htmlAttributes: new { title = "Profile", @class = "dropdown-item", style = "text-decoration:none;" })</li>
+                <li><hr class="dropdown-divider" /></li>
+                <li>@Html.ActionLink("จัดการบัญชีผู้ใช้", "Index", "UserMange", routeValues: null, htmlAttributes: new { title = "Puctures", @class = "dropdown-item", style = "text-decoration:none;" })</li>
+                <li><hr class="dropdown-divider" /></li>
+                <li>@Html.ActionLink("รีพอร์ต", "Index", "ReportsAdmin", routeValues: null, htmlAttributes: new { title = "Puctures", @class = "dropdown-item", style = "text-decoration:none;" })</li>
+                <li><hr class="dropdown-divider" /></li>
+                <li>@Html.ActionLink("ข้อมูลสถิติ", "Managment", "Admin", routeValues: null, htmlAttributes: new { title = "Puctures", @class = "dropdown-item", style = "text-decoration:none;" })</li>
+                <li><hr class="dropdown-divider" /></li>
+                <li><a class="dropdown-item" style="color:red;" href="javascript:document.getElementById('logoutForm').submit()">ออกจากระบบ</a></li>
+            </ul>
+        </li>
+
+    }
+
+</ul>
 
 
     }
@@ -53,4 +69,7 @@ else
             <li>@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
             <li>@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
         </ul>@*@
+
+
+
 }

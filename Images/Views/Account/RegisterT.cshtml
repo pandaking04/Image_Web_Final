@@ -43,14 +43,17 @@
                                 @Html.LabelFor(m => m.FirstName, new { @class = "col-md-2 control-label" })
                                 <div class="icon1">
                                     @Html.TextBoxFor(m => m.FirstName, new { @class = "form-control" })
+
                                 </div>
+                                @Html.ValidationMessageFor(m => m.FirstName, "", new { @class = "text-danger", @style = "color:red" })
                             </div>
                             <div>
-                            @*  @Html.LabelFor(m => m.LastName, new { @class = "col-md-2 control-label" })*@
-                                @Html.Label( "Profile Picture", new { @class = "col-md-2 control-label" })
+                                @*  @Html.LabelFor(m => m.LastName, new { @class = "col-md-2 control-label" })*@
+                                @Html.Label("Profile Picture", new { @class = "col-md-2 control-label" })
                                 <div class="icon1">
-                                    @Html.TextBoxFor(m => m.LastName, new {@style="padding:10px", @class = "form-control",@type="file" ,@accept=".png,.jpg,.jpeg,.gif,.tif"})
+                                    @Html.TextBoxFor(m => m.LastName, new { @style = "padding:10px", @class = "form-control", @type = "file", @accept = ".png,.jpg,.jpeg,.gif,.tif" })
                                 </div>
+                                @Html.ValidationMessageFor(m => m.LastName, "", new { @class = "text-danger", @style = "color:red" })
                             </div>
                            
                             <div>
@@ -58,7 +61,8 @@
                                 <div class="icon1">
                                     @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
                                 </div>
-                                @Html.ValidationSummary("", new { @class = "text-danger" })
+                                @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger", @style = "color:red" })
+                                @* @Html.ValidationSummary("", new { @class = "text-danger" , @style = "color:red" })*@
                             </div>
                             @*<div>
                                 @Html.LabelFor(m => m.BankName, new { @class = "col-md-2 control-label" })
@@ -72,19 +76,21 @@
                                     @Html.TextBoxFor(m => m.BankID, new { @class = "form-control" })
                                 </div>
                             </div>*@
-                            <div>
-                                @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
-                                <div class="icon1">
-                                    @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
-                                </div>
+                        <div>
+                            @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
+                            <div class="icon1">
+                                @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
                             </div>
-                            <div>
-                                @Html.LabelFor(m => m.ConfirmPassword, new { @class = "col-md-2 control-label" })
-                                <div class="icon1">
+                            @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger", @style = "color:red" })
+                        </div>
+                        <div>
+                            @Html.LabelFor(m => m.ConfirmPassword, new { @class = "col-md-2 control-label" })
+                            <div class="icon1">
 
-                                    @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
-                                </div>
+                                @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
                             </div>
+                            @Html.ValidationMessageFor(m => m.ConfirmPassword, "", new { @class = "text-danger", @style = "color:red" })
+                        </div>
                             <div class="bottom">
                                 <input type="submit" value="Create account" />
                             </div>

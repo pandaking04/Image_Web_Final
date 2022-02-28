@@ -21,6 +21,11 @@
 </center>
 </br>
 
+
+<center>
+    @Html.ActionLink("รีพอร์ทของแอดมิน", "Index", "ReportsAdmin", new { }, new { @class = "btn btn-info btn-lg" })
+</center>
+
 <script type="text/javascript"
         src="https://www.google.com/jsapi?autoload={
  'modules':[{
@@ -98,3 +103,55 @@
             });
     }
 </script>
+<table style="width: 100%; margin:0,10px,0,0" id="example" class="table table-hover table-striped table-bordered dataTable dtr-inline collapsed" role="grid" aria-describedby="example_info">
+    <thead>
+        <tr role="row" style="text-align:center;">
+            <th class="sorting_desc" tabindex="0" aria-controls="example" rowspan="1" colspan="1" style="width: 40px;">ชื่อภาพ</th>
+            <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1" style="width: 80.2px; ">รูปภาพ</th>
+            <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1" style="width: 46.2px;">ขนาดรูปภาพ</th>
+            <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1" style="width: 46.2px;">ประเภทรูปภาพ</th>
+            <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1" style="width: 46.2px;">ราคารูปภาพ</th>
+            <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1" style="width: 46.2px;">คำสั่งเเก้ไข</th>
+
+    </thead>
+
+    <tr>
+        <!-- Card Component-->
+
+        <td>
+            <h5> Name </h5>
+        </td>
+
+        <td>
+            <h5> Images </h5>
+        </td>
+
+        <td>
+            <h5> Size </h5>
+        </td>
+
+        <td>
+            <h5> Type </h5>
+        </td>
+
+        <td>
+            <h5>  Price </h5>
+        </td>
+
+        <td style="text-align:center">
+            @Html.ActionLink("Edit", "Edit", new { }, new { @class = "btn btn-outline-primary" })
+
+            @Html.ActionLink("Details", "Details", new { }, new { @class = "btn btn-outline-primary" })
+
+            @Html.ActionLink("Delete", "Delete", new
+          {
+
+          }, new { @class = "btn btn-danger" })
+
+        </td>
+    </tr>
+    <!-- End Card Component-->
+
+
+
+</table>
