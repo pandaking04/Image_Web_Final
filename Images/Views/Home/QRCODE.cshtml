@@ -8,7 +8,7 @@
 <main class="container">
     <br/>
     <br/>
-    <div >
+    <div>
 
         <h4 class="input-group3">โปรดแสกน QR Code เพื่อชำระเงิน</h4>
         <hr />
@@ -19,16 +19,21 @@
             </dd>
         </dl>
         <dl class="input-group1">
-            <dd><h5>
-    โปรดกด "ยืนยัน" เมื่อแสกน QR Code เเล้ว
-    @Html.HiddenFor(model => model.Pic_ID)
-   @Html.ActionLink("ยืนยัน", "AddToMyLib","UserCollections", new { idx = Model.Pic_ID, price = Model.Price, url = Model.url, type = Model.Type, name = Model.Name,size = Model.Size,desc = Model.Desc}, new { @class = "btn btn-success" })
+            <dd>
+                <h5>
+                    โปรดกด "ยืนยัน" เมื่อชำระเงินเเล้ว
+                    @Html.HiddenFor(model => model.Pic_ID)
+                </h5>
 
-</h5>
             </dd>
         </dl>
-            
-            
+        <div class="d-grid gap-xl-5" style="margin-bottom:70px; margin-left:31% ; margin-top:-20px ; width:35%">
+
+            @Html.ActionLink("ยืนยัน", "AddToMyLib", "UserCollections", new { idx = Model.Pic_ID, price = Model.Price, url = Model.url, type = Model.Type, name = Model.Name, size = Model.Size, desc = Model.Desc }, new { @class = "btn btn-success" })
+
+        </div>
+
+
     </div>
 
 </main>

@@ -43,7 +43,7 @@
                                 <label for="eMail">ข้อความที่ต้องการ Report</label>
                                 <br />
                                 <div class="form-group">
-                                    @Html.TextAreaFor(model => model.message, new { htmlAttributes = new { @class = "form-control", @style = "width:400px" } })
+                                    @*@Html.TextAreaFor(model => model.message, new { htmlAttributes = new { @class = "form-control", @style = "width:400px" } })*@
                                     @Html.ValidationMessageFor(model => model.message, "", new { @class = "text-danger" })
                                 @* @Html.TextArea("Message", new { rows = 10, columns = 40 })*@
                                     @Html.TextAreaFor(model => model.message, new { cols = 40, @rows = 3 })

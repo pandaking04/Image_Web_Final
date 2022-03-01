@@ -110,6 +110,20 @@ namespace Images
         {
             AspNetUser aspNetUser = db.AspNetUsers.Find(id);
             db.AspNetUsers.Remove(aspNetUser);
+
+            var userpic = db.Pictures.Where(u => u.user_email == aspNetUser.Email);
+            foreach (var item in userpic)
+            {
+                db.Pictures.Remove(item);
+            }
+
+            var userpic1 = db.UserCollections.Where(l => l.user_email == aspNetUser.Email);
+            foreach (var item1 in userpic1)
+            {
+                db.UserCollections.Remove(item1);
+            }
+
+
             db.SaveChanges();
             return RedirectToAction("Index");
         }

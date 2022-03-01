@@ -1,0 +1,71 @@
+﻿@model IEnumerable<Images.Picture>
+@{
+    ViewBag.Title = "Chart";
+    Layout = "~/Views/Shared/_LayoutAll.cshtml";
+}
+
+<center style="margin-top:20px">
+    <div>
+        
+    </div>
+</center>
+
+<br />
+<br />
+<center><h2>ประเภทภาพที่วางขาย</h2></center>
+<br />
+<br />
+<center>
+    <hr style="width:80%" />
+</center>
+<div class="container">
+    <div class="row">
+
+        <div id="target">
+            
+            <div id="pie_chart"></div>
+        </div>
+
+
+    </div>
+</div>
+
+
+<script type="text/javascript"
+        src="https://www.google.com/jsapi?autoload={
+ 'modules':[{
+ 'name':'visualization',
+ 'version':'1',
+ 'packages':['corechart']
+ }]
+ }">
+
+</script>
+
+
+@if (Model.ToList().Count() > 0)
+{
+    <script type="text/javascript">
+    google.charts.load('current', { packages: ['corechart'] });
+
+
+   google.setOnLoadCallback(drawPieChart);
+   function drawPieChart() {
+        $.get('/chartapi/OrderbyModel?email=@Model.ElementAt(0).user_email' , {},
+            function (data) {
+                var tdata = new google.visualization.DataTable();
+                tdata.addColumn('string', 'Model');
+                tdata.addColumn('number', 'Amount');
+                for (var i = 0; i < data.length; i++) {
+                    tdata.addRow([data[i].Model, data[i].Amount]);
+                }
+                var options = {
+                    width: 1200,
+                    height: 350
+                };
+                var chart = new google.visualization.PieChart(document.getElementById('pie_chart'));
+                chart.draw(tdata, options);
+            });
+    }
+    </script>
+}

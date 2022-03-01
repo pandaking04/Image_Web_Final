@@ -23,6 +23,14 @@ namespace Images
             //return View(db.Pictures.ToList());
 
         }
+        public ActionResult Chart()
+        {
+            var bag = db.Pictures.ToList().ToString();
+            ViewBag.bag = bag;
+            return View(db.Pictures.ToList().Where(picture => picture.user_email == User.Identity.Name));
+            //return View(db.Pictures.ToList());
+
+        }
 
         public ActionResult Order()
         {
@@ -89,6 +97,28 @@ namespace Images
                 db.Pictures.Add(picture);
                 db.SaveChanges();
                 return RedirectToAction("Index");
+
+                /*
+                 * if (ModelState.IsValid)
+            {
+
+                var file = Request.Files[0];
+                var res = db.AspNetUsers.Find(aspNetUser.Id);
+                if (file != null && file.ContentLength > 0)
+                {
+                    var fileName = Path.GetFileName(file.FileName);
+                    var path = Path.Combine(Server.MapPath("~/Content/images/Profile"), fileName);
+                    file.SaveAs(path);
+                    res.LastName = fileName;
+                }
+                //db.Pictures.Add(picture);
+                //db.Entry(picture).State = EntityState.Modified;
+                //db.Entry(aspNetUser).State = EntityState.Modified;
+
+                res.FirstName = aspNetUser.FirstName;
+                db.SaveChanges();
+                return RedirectToAction("Index");
+                 */
             }
 
             return View(picture);
@@ -128,8 +158,16 @@ namespace Images
                     picture.url = fileName;
                 }
                 picture.user_email = User.Identity.Name;
-                db.Pictures.Add(picture);
-                db.Entry(picture).State = EntityState.Modified;
+                //db.Pictures.Add(picture);
+                //db.Entry(picture).State = EntityState.Modified;
+                var pic = db.Pictures.Single(x => x.Pic_ID == picture.Pic_ID);
+                pic.Price = picture.Price;
+                pic.Name = picture.Name;
+                pic.Desc = picture.Desc;
+                pic.url = picture.url;
+                pic.Type = picture.Type;
+                pic.Size = picture.Size;
+
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }

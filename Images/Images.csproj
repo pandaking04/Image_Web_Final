@@ -184,7 +184,7 @@
     </Compile>
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
-    <Compile Include="Controllers\APIController.cs" />
+    <Compile Include="Controllers\ChartAPIController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\DashboardController.cs" />
     <Compile Include="Controllers\DetailController.cs" />
@@ -501,6 +501,7 @@
     <Content Include="Views\UserMange\Details.cshtml" />
     <Content Include="Views\UserMange\Edit.cshtml" />
     <Content Include="Views\UserMange\Index.cshtml" />
+    <Content Include="Views\Pictures\Chart.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

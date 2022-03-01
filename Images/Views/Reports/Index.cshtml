@@ -5,27 +5,28 @@
     Layout = "~/Views/Shared/_LayoutAll.cshtml";
 }
 
-<h2 style="text-align:center " >รีพอร์ตภาพของฉัน</h2 >
+<h2 style="text-align:center ">รีพอร์ตภาพของฉัน</h2>
 
-    <table style="width: 100%;" id="example" class="table table-hover table-striped table-bordered dataTable dtr-inline collapsed" role="grid" aria-describedby="example_info">
-        <thead>
-            <tr role="row"><th class="sorting_desc"  tabindex="0"  aria-controls="example" rowspan="1" colspan="1" style="width: 40px;"  >อีเมล์ผู้ส่ง</th>
-            <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1" style="width: 80.2px;" >รูปภาพ</th>
-            <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1" style="width: 46.2px;" >ข้อความ</th>
+<table style="width: 100%;" id="example" class="table table-hover table-striped table-bordered dataTable dtr-inline collapsed" role="grid" aria-describedby="example_info">
+    <thead style="text-align:center;">
+        <tr role="row">
+            <th class="sorting_desc" tabindex="0" aria-controls="example" rowspan="1" colspan="1" style="width: 40px;">อีเมล์ผู้ส่ง</th>
+            <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1" style="width: 80.2px;">รูปภาพ</th>
+            <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1" style="width: 46.2px;">ข้อความ</th>
 
-        </thead>
+    </thead>
 
 
 
-        <!--<table class="table">
-        <tr>
-            <th>
-                <h4>ผู้ส่ง</h4>
-            </th>-->
-        @*  <th>
+    <!--<table class="table">
+    <tr>
+        <th>
+            <h4>ผู้ส่ง</h4>
+        </th>-->
+    @*  <th>
             @Html.DisplayNameFor(model => model.receiver_email)
         </th>*@
-        <!--<th>
+    <!--<th>
             <h4>รูปภาพ</h4>
         </th>
         <th>
@@ -34,24 +35,24 @@
         <th></th>
     </tr>-->
 
-        @foreach (var item in Model)
-        {
-            <tr role="row" class="odd">
-                <td >
-                    @Html.DisplayFor(modelItem => item.sender_email)
-                </td>
-                @*<td>
+    @foreach (var item in Model)
+    {
+        <tr role="row" class="odd">
+            <td style="text-align:center ">
+                @Html.DisplayFor(modelItem => item.sender_email)
+            </td>
+            @*<td>
                     @Html.DisplayFor(modelItem => item.receiver_email)
                 </td>*@
-                <td>
-                    @*  @Html.DisplayFor(modelItem => item.pic_url)*@
-                    <img src=@Url.Content("~/Content/images/"+(item.pic_url)) style="width: 100px;height: auto," />
-                </td>
-                <td class="center-block">
-                    @Html.DisplayFor(modelItem => item.message)
-                </td>
+            <td style="text-align:center ">
+                @*  @Html.DisplayFor(modelItem => item.pic_url)*@
+                <img src=@Url.Content("~/Content/images/"+(item.pic_url)) style="width: 100px;height: auto," />
+            </td>
+            <td style="text-align:center ">
+                @Html.DisplayFor(modelItem => item.message)
+            </td>
 
-            </tr>
-        }
+        </tr>
+    }
 
-    </table>
+</table>

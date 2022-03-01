@@ -37,32 +37,13 @@
 
 </script>
 
-<script type="text/javascript">
-    google.load('visualization', '1.1', { packages: ['line'] });
-    google.setOnLoadCallback(drawLineChart);
-    function drawLineChart() {
-        $.get('/API/OrderbyModel', {},
-            function (data) {
-                var tdata = new google.visualization.DataTable();
-                tdata.addColumn('string', 'ประเภท');
-                tdata.addColumn('number', 'จำนวนรูป');
-                for (var i = 0; i < data.length; i++) {
-                    tdata.addRow([data[i].Model, data[i].Amount]);
-                }
-                var options = {
-                    width: 500
-                };
-                var chart = new google.charts.Line(document.getElementById('line_chart'));
-                chart.draw(tdata, options);
-            });
-    }
-</script>
+
 
 <script type="text/javascript">
     google.charts.load('current', { packages: ['corechart'] });
     google.setOnLoadCallback(drawPieChart);
     function drawPieChart() {
-        $.get('/API/OrderbyModel', {},
+        $.get('/chartapi/OrderbyModelPic', {},
             function (data) {
                 var tdata = new google.visualization.DataTable();
                 tdata.addColumn('string', 'Model');
@@ -86,7 +67,7 @@
     google.charts.load('current', { packages: ['corechart'] });
     google.setOnLoadCallback(drawPieChart);
     function drawPieChart() {
-        $.get('/API/OrderbyModelPic', {},
+        $.get('/chartapi/OrderbyModelType', {},
             function (data) {
                 var tdata = new google.visualization.DataTable();
                 tdata.addColumn('string', 'Model');
