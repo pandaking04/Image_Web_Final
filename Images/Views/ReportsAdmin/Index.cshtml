@@ -5,12 +5,12 @@
     Layout = "~/Views/Shared/_LayoutAll.cshtml";
 }
 <center>
-    <h2>ReportsAdmin</h2>
+    <h2 style="margin-top:50px">Reports</h2>
 </center>
 @*<p>
     @Html.ActionLink("Create New", "Create")
 </p>*@
-<div style="padding-left: 10%; padding-right: 10%; padding-top: 5%;justify-content:center">
+<div style="padding-left: 10%; padding-right: 10%;justify-content:center">
     <table class="table table-striped" style="align-content:center" >
         <tr>
             <th>
@@ -51,9 +51,9 @@
                     @Html.DisplayFor(modelItem => item.message)
                 </td>
                 <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }, new { @class = "btn btn-warning btn-large" })
-                    @Html.ActionLink("Details", "Details", new { id = item.Id }, new { @class = "btn btn-primary btn-large" })
-                    @Html.ActionLink("Delete", "Delete", new { id = item.Id, @class = "btn btn-danger" }, new { @class = "btn btn-danger btn-large" })
+                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }, new { @class = "btn btn-outline-primary" })
+                    
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Id, @class = "btn btn-danger" }, new { @class = "btn btn-danger" })
                 </td>
             </tr>
         }

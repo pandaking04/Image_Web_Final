@@ -16,7 +16,7 @@ namespace Images
         // GET: UserMange
         public ActionResult Index()
         {
-            return View(db.AspNetUsers.ToList());
+            return View(db.AspNetUsers.ToList().Where(x => x.Email != "admin@admin.com")); ;
         }
 
         // GET: UserMange/Details/5

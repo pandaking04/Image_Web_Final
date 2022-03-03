@@ -23,80 +23,84 @@
 </head>
 <body>
     @*  *@
-<nav class="navbar navbar-expand-lg navbar-dark bg-black">
-    <a class="nav-link active" aria-current="page" href='@Url.Action("Index","Home")'><img class="navbar-brand" src="@Url.Content("~/Content/images/img.png")" height="76" /></a>
-    @*
-        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-info my-2 my-sm-0" type="submit">Search</button>*@
-    @using (Html.BeginForm("Search", "Home", FormMethod.Post))
-    {
-        <div style="display:flex;flex-direction:row">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-black">
+        <a class="nav-link active" aria-current="page" href='@Url.Action("Index","Home")'><img class="navbar-brand" src="@Url.Content("~/Content/images/img.png")" height="76" /></a>
+        @*
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-info my-2 my-sm-0" type="submit">Search</button>*@
+        @using (Html.BeginForm("Search", "Home", FormMethod.Post))
+        {
+            <div style="display:flex;flex-direction:row">
 
-            @Html.TextBox("searchString", null, new { @style = "width:100%;margin-right:10px", @class = "form-control", @placeholder = "ค้นหารูปภาพ", })
+                @Html.TextBox("searchString", null, new { @style = "width:100%;margin-right:10px", @class = "form-control", @placeholder = "ค้นหารูปภาพ", })
 
-            <button type="submit" class="btn btn-outline-warning">ค้นหา</button>
-        </div>
-
-    }
-    <div class="container px-4 px-lg-5">
-
-
-        @*<a class="navbar-brand" href='@Url.Action("Index","Home")'>Images Shot</a>*@
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-
-            <div class="d-flex2">
-                <ul class="navbar-nav me-auto ms-auto">
-
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href='@Url.Action("Index","Home")'>หน้าแรก</a>
-                    </li>
-                    <!--<li class="nav-item">
-                        <a class="nav-link" href="#!">About</a>
-                    </li>-->
-
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">ภาพ</a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" onclick="location.href = '@Url.Action("Art","art")'">ศิลปะ</a></li>
-                            <li><hr class="dropdown-divider" /></li>
-                            <li><a class="dropdown-item" onclick="location.href = '@Url.Action("Nature","nature")'">ธรรมชาติ</a></li>
-                            <li><hr class="dropdown-divider" /></li>
-                            <li><a class="dropdown-item" onclick="location.href = '@Url.Action("Animal","animal")'">สัตว์</a></li>
-                            <li><hr class="dropdown-divider" /></li>
-                            <li><a class="dropdown-item" onclick="location.href = '@Url.Action("sci","Science")'">วิทยาศาตร์</a></li>
-                            <li><hr class="dropdown-divider" /></li>
-                            <li><a class="dropdown-item" onclick="location.href = '@Url.Action("Tech","tech")'">เทคโนโลยี</a></li>
-                        </ul>
-                    </li>
-
-                </ul>
-
-                @Html.Partial("_LoginPartial")
+                <button type="submit" class="btn btn-outline-warning">ค้นหา</button>
             </div>
 
-            @*<form >
-                    <button class="btn btn-outline-light" type="button" onclick="location.href = '@Url.Action("Mycart","Home")'">
-                        <i class="bi-cart-fill me-1"></i>
-                        ตระกร้า
-                        <span class="badge bg-dark text-white ms-1 rounded-pill">@(Session["count"]==null ? "0": Session["count"])</span>
-                    </button>
-                </form>*@
+        }
+        <div class="container px-4 px-lg-5">
+
+
+            @*<a class="navbar-brand" href='@Url.Action("Index","Home")'>Images Shot</a>*@
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+                <div class="d-flex2">
+                    <ul class="navbar-nav me-auto ms-auto">
+
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href='@Url.Action("Index","Home")'>หน้าแรก</a>
+                        </li>
+                        <!--<li class="nav-item">
+                            <a class="nav-link" href="#!">About</a>
+                        </li>-->
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">ภาพ</a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" onclick="location.href = '@Url.Action("Art","art")'">ศิลปะ</a></li>
+                                <li><hr class="dropdown-divider" /></li>
+                                <li><a class="dropdown-item" onclick="location.href = '@Url.Action("Nature","nature")'">ธรรมชาติ</a></li>
+                                <li><hr class="dropdown-divider" /></li>
+                                <li><a class="dropdown-item" onclick="location.href = '@Url.Action("Animal","animal")'">สัตว์</a></li>
+                                <li><hr class="dropdown-divider" /></li>
+                                <li><a class="dropdown-item" onclick="location.href = '@Url.Action("sci","Science")'">วิทยาศาตร์</a></li>
+                                <li><hr class="dropdown-divider" /></li>
+                                <li><a class="dropdown-item" onclick="location.href = '@Url.Action("Tech","tech")'">เทคโนโลยี</a></li>
+                            </ul>
+                        </li>
+
+                    </ul>
+
+                    @Html.Partial("_LoginPartial")
+                </div>
+
+                @*<form >
+                        <button class="btn btn-outline-light" type="button" onclick="location.href = '@Url.Action("Mycart","Home")'">
+                            <i class="bi-cart-fill me-1"></i>
+                            ตระกร้า
+                            <span class="badge bg-dark text-white ms-1 rounded-pill">@(Session["count"]==null ? "0": Session["count"])</span>
+                        </button>
+                    </form>*@
+            </div>
         </div>
+
+    </nav>
+    <div>
+        @RenderBody()
     </div>
+    <!-- Footer-->
+    @*<footer class="py-5 bg-dark">
 
-</nav>
-<div>
-    @RenderBody()
-</div>
-<!-- Footer-->
-@*<footer class="py-5 bg-dark">
+        </footer>*@
+    <footer class="py-0 bg-dark" style="position:fixed; bottom:0px;width:100%">
+        <p style="color:white;text-align:center">© 2022 ImageShot</p>
+    </footer>
 
-    </footer>*@
-<!-- Bootstrap core JS-->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
-<!-- Core theme JS-->
-<script src="js/scripts.js"></script>
+    <!-- Bootstrap core JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Core theme JS-->
+    <script src="js/scripts.js"></script>
 
 </body>
 </html>
