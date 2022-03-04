@@ -19,7 +19,7 @@ namespace Images
             return View(db.UserCollections.ToList().Where(user => user.user_email == User.Identity.Name));
             //return View(db.UserCollections.ToList());
         }
-        public ActionResult AddToMyLib(int idx, decimal? price, string url, string type, string name, string size, string desc)
+        public ActionResult AddToMyLib(int idx, decimal? price, string url, string type, string name, string size, string desc, string email)
         {
             if (idx == null)
             {
@@ -43,6 +43,7 @@ namespace Images
             user.Size = size;
             user.Desc = desc;
             user.picid = idx;
+            user.UserName = email;
 
             db.UserCollections.Add(user);
             db.SaveChanges();

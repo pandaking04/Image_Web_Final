@@ -30,7 +30,7 @@ namespace Images
         {
             var chartDataList = new List<ChartModel>();
 
-            var prod = db.Pictures.Where(u => u.user_email == email).OrderBy(i => i.Pic_ID).ToList();
+            var prod = db.UserCollections.Where(u => u.UserName == email).OrderBy(i => i.Id_userimage).ToList();
             foreach (var item in prod.GroupBy(i => i.Type))
             {
                 var chartData = new ChartModel();

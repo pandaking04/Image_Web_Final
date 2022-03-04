@@ -29,7 +29,7 @@
         </dl>
         <div class="d-grid gap-xl-5" style="margin-bottom:70px; margin-left:31% ; margin-top:-20px ; width:35%">
 
-            @Html.ActionLink("ยืนยัน", "AddToMyLib", "UserCollections", new { idx = Model.Pic_ID, price = Model.Price, url = Model.url, type = Model.Type, name = Model.Name, size = Model.Size, desc = Model.Desc }, new { @class = "btn btn-success" })
+            @Html.ActionLink("ยืนยัน", "AddToMyLib", "UserCollections", new { idx = Model.Pic_ID, price = Model.Price, url = Model.url, type = Model.Type, name = Model.Name, size = Model.Size, desc = Model.Desc, email=Model.user_email }, new { @class = "btn btn-success" })
 
         </div>
 
